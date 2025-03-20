@@ -436,6 +436,11 @@ class Benchmark(LoggingBase):
                 runtime=self.language_version,
                 version=self._system_config.version(),
             )
+            image_name = "build.{deployment}.{language}.{runtime}".format(
+                deployment=self._deployment_name,
+                language=self.language_name,
+                runtime=self.language_version,
+            )
             try:
                 self._docker_client.images.get(repo_name + ":" + image_name)
             except docker.errors.ImageNotFound:

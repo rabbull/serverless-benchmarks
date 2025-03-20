@@ -75,7 +75,7 @@ map the container's port to port `9011` on host network, and write storage insta
 to file `out_storage.json`
 
 ```
-./sebs.py storage start minio --port 9011 --output-json out_storage.json
+./sebs.py storage start object --output-json out_storage.json ./config/storage.json
 ```
 
 Then, we need to update the configuration of `local` deployment with information on the storage 

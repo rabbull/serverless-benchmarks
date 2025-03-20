@@ -248,6 +248,13 @@ class System(ABC, LoggingBase):
 
     def get_function(self, code_package: Benchmark, func_name: Optional[str] = None) -> Function:
 
+        print('>>', code_package.language_version)
+        print('>>', self.name())
+        print('>>', code_package.language_name)
+        print('>>', code_package.architecture)
+        print('>>', self.system_config.supported_language_versions(
+            self.name(), code_package.language_name, code_package.architecture
+        ))
         if code_package.language_version not in self.system_config.supported_language_versions(
             self.name(), code_package.language_name, code_package.architecture
         ):
